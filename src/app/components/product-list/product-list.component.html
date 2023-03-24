@@ -8,11 +8,8 @@
         <button mat-flat-button color="primary" matTooltip="Add new product"><mat-icon>add</mat-icon>Add new</button>
     </mat-card-header>
     <mat-card-content>
-        <div>
-            <app-product></app-product>
-            <app-product></app-product>
-            <app-product></app-product>
+        <div class="product-grid">
+            <app-product *ngFor="let item of [1,2,3,4,5,6,7,1,2,3,4,5]"></app-product>
         </div>
-
     </mat-card-content>
 </mat-card>
