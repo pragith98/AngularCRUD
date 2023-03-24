@@ -7,6 +7,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatChipsModule} from '@angular/material/chips';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import { HomeComponent } from './views/home-page/home.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductComponent } from './components/product/product.component';
 import { ProductPageComponent } from './views/product-page/product-page.component';
+import { ProductViewComponent } from './components/product-view/product-view.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { ProductPageComponent } from './views/product-page/product-page.componen
     HomeComponent,
     ProductListComponent,
     ProductComponent,
-    ProductPageComponent
+    ProductPageComponent,
+    ProductViewComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,8 @@ import { ProductPageComponent } from './views/product-page/product-page.componen
     MatCardModule,
     MatButtonModule,
     MatDividerModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

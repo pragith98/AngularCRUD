@@ -1,0 +1,49 @@
+<mat-card class="remove-shadow product-view-card">
+    <mat-card-header class="card-header">
+        <mat-card-title>Product</mat-card-title>
+        <span class="spacer"></span>
+        <button mat-flat-button color="primary" matTooltip="Edit product"><mat-icon>edit</mat-icon>Edit</button>
+        <button mat-flat-button color="warn" matTooltip="Delete product"><mat-icon>delete</mat-icon>Delete</button>
+    </mat-card-header>
+    <mat-card-content>
+
+        <div class="product">
+            <div class="product-image-section">
+                <img mat-card-image src="https://i.dummyjson.com/data/products/5/thumbnail.jpg">
+            </div>
+
+            <div class="product-details-section">
+                <h1 class="mat-headline-4 title">I phone 9 </h1>
+                <mat-chip class="mat-headline-5 price">
+                    <strong>USD 549</strong>
+                </mat-chip>
+
+                <table>
+                    <tr>
+                        <td><strong>Category</strong></td>
+                        <td>: Laptop</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Brand</strong></td>
+                        <td>: Samsung</td>
+                    </tr>
+                </table>
+
+                <p><strong>Description :</strong><br>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem magnam ut reiciendis labore earum
+                    pariatur doloremque, impedit neque cupiditate nam ipsum, velit minus consequuntur voluptatem autem
+                    sint
+                    commodi explicabo placeat!
+                </p>
+
+            </div>
+        </div>
+
+    </mat-card-content>
+</mat-card>
+
+<div class="go-back product-view-card">
+    <button mat-flat-button matTooltip="Go to product list page" routerLink="/"><mat-icon>arrow_back</mat-icon>
+        Go back
+    </button>
+</div>
