@@ -1,0 +1,24 @@
+@import './variables';
+
+.card-header {
+    color: $card-header-title-color;
+    background-color: $card-header-color;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding-bottom: 13px;
+
+    button {
+        margin-left: 5px;
+    }
+
+    .button-accent-color {
+        color: white;
+        background-color: $button-accent-color;
+    }
+}
+
+.remove-shadow {
+    box-shadow: none;
+}
