@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
-
-import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import { Component, OnInit } from '@angular/core';
+import { ProductService } from 'src/app/services/product.service';
+import { MatDialog } from '@angular/material/dialog';
 import { AddProductComponent } from '../add-product/add-product.component';
-
 
 
 
@@ -11,17 +10,35 @@ import { AddProductComponent } from '../add-product/add-product.component';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss']
 })
-export class ProductListComponent {
 
-  
-  animal: string='';
-  name: string='';
+export class ProductListComponent implements OnInit {
+  products: any[] = []
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private service: ProductService) { }
+
+
+  ngOnInit(): void {
+    this.service.productListNew.subscribe(Response => {
+      this.products = Response
+    })
+  }
+
+
+  getProductList() {
+    this.service.fetchProducts();
+  }
+
+
+
+
+
+//------------ for dialog box
+  animal: string = '';
+  name: string = '';
 
   openDialog(): void {
     const dialogRef = this.dialog.open(AddProductComponent, {
-      data: {name: this.name, animal: this.animal},
+      data: { name: this.name, animal: this.animal },
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -29,5 +46,6 @@ export class ProductListComponent {
       this.animal = result;
     });
   }
+//-----------------------------
 
 }

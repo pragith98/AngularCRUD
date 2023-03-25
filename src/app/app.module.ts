@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
@@ -22,6 +23,7 @@ import { ProductComponent } from './components/product/product.component';
 import { ProductPageComponent } from './views/product-page/product-page.component';
 import { ProductViewComponent } from './components/product-view/product-view.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
+import { SummaryPipe } from './pipes/summary.pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { AddProductComponent } from './components/add-product/add-product.compon
     ProductComponent,
     ProductPageComponent,
     ProductViewComponent,
-    AddProductComponent
+    AddProductComponent,
+    SummaryPipe
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,8 @@ import { AddProductComponent } from './components/add-product/add-product.compon
     MatChipsModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
