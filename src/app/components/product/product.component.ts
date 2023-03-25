@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -18,7 +19,12 @@ export class ProductComponent {
     thumbnail: '',
   };
 
-  constructor() { }
+  constructor(private router: Router) { }
+
+  navigateToProductPage(productID: number) {
+    this.router.navigate(['/product/', productID]);
+  }
+
 
 
 }

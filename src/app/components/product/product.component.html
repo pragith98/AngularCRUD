@@ -1,4 +1,4 @@
-<mat-card class="product-card">
+<mat-card class="product-card" (click)="navigateToProductPage(product.id)">
     <img mat-card-image src={{product.thumbnail}}>
     <mat-card-content>
         <h6 class="mat-headline-6">{{product.title | summary:18}}</h6>
