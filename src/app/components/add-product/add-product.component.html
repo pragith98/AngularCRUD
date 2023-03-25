@@ -1,0 +1,59 @@
+<div class="add-product-card">
+    <mat-card>
+        <mat-card-header class="card-header">
+            <mat-card-title>Add product</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-dialog-content class="mat-typography">
+
+                <form class="form">
+
+                    <div>
+                        <mat-form-field appearance="outline" class="form-field">
+                            <mat-label>Enter title</mat-label>
+                            <input matInput placeholder="ex: iPhone 9">
+                            <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field appearance="outline" class="form-field">
+                            <mat-label>Enter price</mat-label>
+                            <input matInput placeholder="ex: 900">
+                            <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field appearance="outline" class="form-field">
+                            <mat-label>Enter category</mat-label>
+                            <input matInput placeholder="ex: Mobile phone">
+                            <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field appearance="outline" class="form-field">
+                            <mat-label>Enter brand</mat-label>
+                            <input matInput placeholder="ex: Apple">
+                            <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field appearance="outline" class="form-field">
+                            <mat-label>Enter description</mat-label>
+                            <textarea matInput></textarea>
+                            <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                        </mat-form-field>
+                    </div>
+                </form>
+
+            </mat-dialog-content>
+            <mat-divider></mat-divider>
+        </mat-card-content>
+
+        <mat-card-actions align="end">
+            <button mat-flat-button color="basic" matTooltip="Cancel operation">Cancel
+            </button>
+            <button mat-flat-button color="primary" matTooltip="Save new product"><mat-icon>save</mat-icon>Save
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</div>

@@ -5,7 +5,7 @@
         <button mat-flat-button class="button-accent-color"
             matTooltip="Refresh product list"><mat-icon>refresh</mat-icon>Refresh
         </button>
-        <button mat-flat-button color="primary" matTooltip="Add new product"><mat-icon>add</mat-icon>Add new</button>
+        <button mat-flat-button color="primary" matTooltip="Add new product" (click)="openDialog()"><mat-icon>add</mat-icon>Add new</button>
     </mat-card-header>
     <mat-card-content>
         <div class="product-grid">

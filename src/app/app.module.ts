@@ -8,6 +8,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +21,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { ProductComponent } from './components/product/product.component';
 import { ProductPageComponent } from './views/product-page/product-page.component';
 import { ProductViewComponent } from './components/product-view/product-view.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,8 @@ import { ProductViewComponent } from './components/product-view/product-view.com
     ProductListComponent,
     ProductComponent,
     ProductPageComponent,
-    ProductViewComponent
+    ProductViewComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +44,10 @@ import { ProductViewComponent } from './components/product-view/product-view.com
     MatButtonModule,
     MatDividerModule,
     MatTooltipModule,
-    MatChipsModule
+    MatChipsModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
