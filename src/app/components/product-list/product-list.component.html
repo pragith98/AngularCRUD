@@ -1,0 +1,17 @@
+<mat-card class="remove-shadow">
+    <mat-card-header class="card-header">
+        <mat-card-title>Product List</mat-card-title>
+        <span class="spacer"></span>
+        <button mat-flat-button class="button-accent-color" matTooltip="Refresh product list"
+            (click)="getProductList()"><mat-icon>refresh</mat-icon>Refresh
+        </button>
+        <button mat-flat-button color="primary" matTooltip="Add new product"
+            (click)="openAddProductDialog()"><mat-icon>add</mat-icon>Add new
+        </button>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="product-grid">
+            <app-product *ngFor="let product of products" [product]="product"></app-product>
+        </div>
+    </mat-card-content>
+</mat-card>

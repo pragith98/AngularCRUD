@@ -1,0 +1,11 @@
+<mat-card class="product-card" (click)="navigateToProductPage(product.id)">
+    <img mat-card-image src={{product.thumbnail}}>
+    <mat-card-content>
+        <h6 class="mat-headline-6">{{product.title | summary:18}}</h6>
+        <span class="mat-subtitle-1">{{product.category}}</span><br>
+        <span class="mat-subtitle-2">{{product.brand}}</span>
+    </mat-card-content>
+    <div class="price-slot">
+        <span class="mat-subtitle-1">Price {{product.price | currency}}</span>
+    </div>
+</mat-card>
