@@ -29,23 +29,8 @@ export class ProductListComponent implements OnInit {
   }
 
 
-
-
-
-//------------ for dialog box
-  animal: string = '';
-  name: string = '';
-
-  openDialog(): void {
-    const dialogRef = this.dialog.open(AddProductComponent, {
-      // data: { name: this.name, animal: this.animal },
-    });
-
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log('The dialog was closed');
-    //   this.animal = result;
-    // });
+  openAddProductDialog(): void {
+    const dialogRef = this.dialog.open(AddProductComponent);
   }
-//-----------------------------
 
 }
