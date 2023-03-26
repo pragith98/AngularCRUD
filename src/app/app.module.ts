@@ -24,6 +24,7 @@ import { ProductPageComponent } from './views/product-page/product-page.componen
 import { ProductViewComponent } from './components/product-view/product-view.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { SummaryPipe } from './pipes/summary.pipe';
+import { DeleteProductComponent } from './components/delete-product/delete-product.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { SummaryPipe } from './pipes/summary.pipe';
     ProductPageComponent,
     ProductViewComponent,
     AddProductComponent,
-    SummaryPipe
+    SummaryPipe,
+    DeleteProductComponent
   ],
   imports: [
     BrowserModule,

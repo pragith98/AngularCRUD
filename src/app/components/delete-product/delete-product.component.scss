@@ -1,0 +1,23 @@
+.delete-product {
+    width: 450px;
+
+    button {
+        margin-left: 5px;
+    }
+
+    .help-icon {
+        color: red;
+        transform: scale(5);
+    }
+
+    div {
+        text-align: center;
+        padding-top: 60px;
+    }
+
+    mat-card-content {
+        text-align: center;
+        margin-top: 60px;
+        margin-bottom: 10px;
+    }
+}
