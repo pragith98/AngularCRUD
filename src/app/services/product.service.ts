@@ -52,14 +52,20 @@ export class ProductService {
   }
 
   deleteProduct(productID: number) {
-    let productList: Product[] = JSON.parse(localStorage.getItem('productList') || '[]');
-    let selectedProduct = productList.findIndex(item => item.id === productID);
-    let deletedProduct = productList.splice(selectedProduct, 1);
-    localStorage.setItem('productList', JSON.stringify(productList));
+    try {
+      let productList: Product[] = JSON.parse(localStorage.getItem('productList') || '[]');
+      let selectedProduct = productList.findIndex(item => item.id === productID);
+      let deletedProduct = productList.splice(selectedProduct, 1);
+      localStorage.setItem('productList', JSON.stringify(productList));
 
-    this.getProductsFromLocalStorage()
+      this.getProductsFromLocalStorage()
 
-    return deletedProduct;
+      return true;
+      
+    } catch (error) {
+      return false;
+    }
+
   }
 
   addNewProduct(newProduct: any, image: any): boolean {
@@ -79,7 +85,7 @@ export class ProductService {
     }
   }
 
-  editProduct(product: any, image: any,productID:number): boolean {
+  editProduct(product: any, image: any, productID: number): boolean {
     try {
       let productList: Product[] = JSON.parse(localStorage.getItem('productList') || '[]');
       let selectedProduct = productList.findIndex(item => item.id === productID);
@@ -90,7 +96,7 @@ export class ProductService {
       productList[selectedProduct].price = product.price;
       productList[selectedProduct].description = product.description;
 
-      image? productList[selectedProduct].thumbnail = image: false;
+      image ? productList[selectedProduct].thumbnail = image : false;
 
       localStorage.setItem('productList', JSON.stringify(productList));
 

@@ -2,6 +2,7 @@ import { Component, Inject } from '@angular/core';
 
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AlertsService } from 'src/app/services/alerts.service';
 import { ProductService } from 'src/app/services/product.service';
 
 export interface DialogData {
@@ -21,7 +22,7 @@ export interface DialogData {
 })
 export class EditProductComponent {
 
-  constructor(public dialogRef: MatDialogRef<EditProductComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogData, private service: ProductService) { }
+  constructor(public dialogRef: MatDialogRef<EditProductComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogData, private service: ProductService, private alertService: AlertsService) { }
 
   productID: number = this.data.id;
   selectedFile: any;
@@ -67,13 +68,12 @@ export class EditProductComponent {
       const success = this.service.editProduct(this.myForm.value, '', this.productID)
 
       if (success) {
-        console.log("product update")
+        this.alertService.openSnackBar('Product edited successfully', 'Close', 3000);
+        this.dialogRef.close();
       } else {
-        console.log('error')
+        this.alertService.openSnackBar('Operation failed!', 'Close', 3000);
       }
     }
-
-    this.dialogRef.close();
 
   }
 }

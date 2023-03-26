@@ -2,6 +2,7 @@ import { Component, Inject } from '@angular/core';
 
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { AlertsService } from 'src/app/services/alerts.service';
 import { ProductService } from 'src/app/services/product.service';
 
 export interface DialogData {
@@ -19,17 +20,20 @@ export class DeleteProductComponent {
   constructor(
     public dialogRef: MatDialogRef<DeleteProductComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    private service: ProductService, private router: Router
+    private service: ProductService, private router: Router, private alertService: AlertsService
   ) { }
 
   deleteProduct() {
-    if (this.service.deleteProduct(this.data.productID)) {
+    const success = this.service.deleteProduct(this.data.productID)
+
+    if (success) {
       this.dialogRef.close();
       this.router.navigate(['/']);
-    } else {
-      console.log("error")
-    }
 
+      this.alertService.openSnackBar('Product deleted successfully', 'Close', 3000);
+    } else {
+      this.alertService.openSnackBar('Operation failed!', 'Close', 3000);
+    }
   }
 
 
