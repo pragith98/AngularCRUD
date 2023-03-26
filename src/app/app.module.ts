@@ -26,6 +26,7 @@ import { ProductViewComponent } from './components/product-view/product-view.com
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { SummaryPipe } from './pipes/summary.pipe';
 import { DeleteProductComponent } from './components/delete-product/delete-product.component';
+import { EditProductComponent } from './components/edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { DeleteProductComponent } from './components/delete-product/delete-produ
     ProductViewComponent,
     AddProductComponent,
     SummaryPipe,
-    DeleteProductComponent
+    DeleteProductComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,

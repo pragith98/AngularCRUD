@@ -9,6 +9,11 @@ interface ApiResponse {
 interface Product {
   id: number;
   thumbnail: string;
+  title: string;
+  description: string;
+  price: number;
+  brand: string;
+  category: string;
 }
 
 @Injectable({
@@ -63,6 +68,29 @@ export class ProductService {
       newProduct.id = productList.length + 1;
       newProduct.thumbnail = image;
       productList.push(newProduct);
+
+      localStorage.setItem('productList', JSON.stringify(productList));
+
+      this.getProductsFromLocalStorage()
+      return true;
+
+    } catch (error) {
+      return false;
+    }
+  }
+
+  editProduct(product: any, image: any,productID:number): boolean {
+    try {
+      let productList: Product[] = JSON.parse(localStorage.getItem('productList') || '[]');
+      let selectedProduct = productList.findIndex(item => item.id === productID);
+
+      productList[selectedProduct].title = product.title;
+      productList[selectedProduct].category = product.category;
+      productList[selectedProduct].brand = product.brand;
+      productList[selectedProduct].price = product.price;
+      productList[selectedProduct].description = product.description;
+
+      image? productList[selectedProduct].thumbnail = image: false;
 
       localStorage.setItem('productList', JSON.stringify(productList));
 

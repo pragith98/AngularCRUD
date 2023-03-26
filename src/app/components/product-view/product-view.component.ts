@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductService } from 'src/app/services/product.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteProductComponent } from '../delete-product/delete-product.component';
+import { EditProductComponent } from '../edit-product/edit-product.component';
 
 @Component({
   selector: 'app-product-view',
@@ -32,6 +33,12 @@ export class ProductViewComponent implements OnInit {
   openDeleteDialog(): void {
     this.dialog.open(DeleteProductComponent, {
       data: { productID: this.productID },
+    });
+  }
+
+  openEditDialog(): void {
+    this.dialog.open(EditProductComponent, {
+      data:  this.product ,
     });
   }
 }
