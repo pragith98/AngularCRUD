@@ -5,14 +5,36 @@
     width: 500px;
 }
 
-.form{
+.form {
     margin-top: 20px;
 }
 
-.form-field{
+.form-field {
     width: 100%;
 }
 
-button{
+button {
     margin-left: 5px;
+}
+
+mat-hint {
+    color: red;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.image-upload {
+    width: 95%;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    display: inline-block;
+    margin-bottom: 20px;
+
+    &:hover {
+        background-color: rgb(114, 114, 255);
+    }
 }

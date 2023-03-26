@@ -3,57 +3,74 @@
         <mat-card-header class="card-header">
             <mat-card-title>Add product</mat-card-title>
         </mat-card-header>
-        <mat-card-content>
-            <mat-dialog-content class="mat-typography">
-
-                <form class="form">
-
+        <form class="form" [formGroup]="myForm" (ngSubmit)="submitForm()">
+            <mat-card-content>
+                <mat-dialog-content class="mat-typography">
+                    <div>
+                        <input id="myFileInput" placeholder="ex: iPhone 9" formControlName="image" type="file"
+                            (change)="onFileSelected($event)" accept="image/jpeg, image/png">
+                        <label for="myFileInput" class="image-upload">{{selectedFile?selectedFile.name:'Select productimage'}}
+                        </label>
+                    </div>
                     <div>
                         <mat-form-field appearance="outline" class="form-field">
                             <mat-label>Enter title</mat-label>
-                            <input matInput placeholder="ex: iPhone 9">
-                            <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                            <input matInput placeholder="ex: iPhone 9" formControlName="title">
+                            <div *ngIf="title.invalid && (title.dirty || title.touched)">
+                                <mat-hint *ngIf="title.errors?.['required']">Title is required</mat-hint>
+                            </div>
                         </mat-form-field>
                     </div>
                     <div>
                         <mat-form-field appearance="outline" class="form-field">
                             <mat-label>Enter price</mat-label>
-                            <input matInput placeholder="ex: 900">
-                            <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                            <input matInput placeholder="ex: 900" formControlName="price" type="number" min="0">
+                            <div *ngIf="price.invalid && (price.dirty || price.touched)">
+                                <mat-hint *ngIf="price.errors?.['required']">Price is required</mat-hint>
+                                <mat-hint *ngIf="price.errors?.['min']">Price should be over 0</mat-hint>
+                            </div>
                         </mat-form-field>
                     </div>
                     <div>
                         <mat-form-field appearance="outline" class="form-field">
                             <mat-label>Enter category</mat-label>
-                            <input matInput placeholder="ex: Mobile phone">
-                            <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                            <input matInput placeholder="ex: Mobile phone" formControlName="category">
+                            <div *ngIf="category.invalid && (category.dirty || category.touched)">
+                                <mat-hint *ngIf="category.errors?.['required']">Category is required</mat-hint>
+                            </div>
                         </mat-form-field>
                     </div>
                     <div>
                         <mat-form-field appearance="outline" class="form-field">
                             <mat-label>Enter brand</mat-label>
-                            <input matInput placeholder="ex: Apple">
-                            <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                            <input matInput placeholder="ex: Apple" formControlName="brand">
+                            <div *ngIf="brand.invalid && (brand.dirty || brand.touched)">
+                                <mat-hint *ngIf="brand.errors?.['required']">Brand is required</mat-hint>
+                            </div>
                         </mat-form-field>
                     </div>
                     <div>
                         <mat-form-field appearance="outline" class="form-field">
                             <mat-label>Enter description</mat-label>
-                            <textarea matInput></textarea>
-                            <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                            <textarea matInput formControlName="description"></textarea>
+                            <div *ngIf="description.invalid && (description.dirty || description.touched)">
+                                <mat-hint *ngIf="description.errors?.['required']">Description is required</mat-hint>
+                            </div>
                         </mat-form-field>
                     </div>
-                </form>
 
-            </mat-dialog-content>
-            <mat-divider></mat-divider>
-        </mat-card-content>
 
-        <mat-card-actions align="end">
-            <button mat-flat-button color="basic" matTooltip="Cancel operation">Cancel
-            </button>
-            <button mat-flat-button color="primary" matTooltip="Save new product"><mat-icon>save</mat-icon>Save
-            </button>
-        </mat-card-actions>
+                </mat-dialog-content>
+                <mat-divider></mat-divider>
+            </mat-card-content>
+
+            <mat-card-actions align="end">
+                <button mat-flat-button color="basic" matTooltip="Cancel operation" mat-dialog-close>Cancel
+                </button>
+                <button mat-flat-button color="primary" matTooltip="Save new product" type="submit"
+                    [disabled]="myForm.invalid"><mat-icon>save</mat-icon>Save
+                </button>
+            </mat-card-actions>
+        </form>
     </mat-card>
 </div>

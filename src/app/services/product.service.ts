@@ -8,6 +8,7 @@ interface ApiResponse {
 
 interface Product {
   id: number;
+  thumbnail: string;
 }
 
 @Injectable({
@@ -54,5 +55,23 @@ export class ProductService {
     this.getProductsFromLocalStorage()
 
     return deletedProduct;
+  }
+
+  addNewProduct(newProduct: any, image: any): boolean {
+    try {
+      let productList: Product[] = JSON.parse(localStorage.getItem('productList') || '[]');
+      newProduct.id = productList.length + 1;
+      newProduct.thumbnail = image;
+      productList.push(newProduct);
+
+      localStorage.setItem('productList', JSON.stringify(productList));
+
+      this.getProductsFromLocalStorage()
+      return true;
+
+    } catch (error) {
+      return false;
+    }
+
   }
 }
