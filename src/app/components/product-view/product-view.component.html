@@ -9,31 +9,28 @@
 
         <div class="product">
             <div class="product-image-section">
-                <img mat-card-image src="https://i.dummyjson.com/data/products/5/thumbnail.jpg">
+                <img mat-card-image src={{product.thumbnail}}>
             </div>
 
             <div class="product-details-section">
-                <h1 class="mat-headline-4 title">I phone 9 </h1>
+                <h1 class="mat-headline-4 title">{{product.title}}</h1>
                 <mat-chip class="mat-headline-5 price">
-                    <strong>USD 549</strong>
+                    <strong>{{product.price | currency}}</strong>
                 </mat-chip>
 
                 <table>
                     <tr>
                         <td><strong>Category</strong></td>
-                        <td>: Laptop</td>
+                        <td>: {{product.category}}</td>
                     </tr>
                     <tr>
                         <td><strong>Brand</strong></td>
-                        <td>: Samsung</td>
+                        <td>: {{product.brand}}</td>
                     </tr>
                 </table>
 
                 <p><strong>Description :</strong><br>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem magnam ut reiciendis labore earum
-                    pariatur doloremque, impedit neque cupiditate nam ipsum, velit minus consequuntur voluptatem autem
-                    sint
-                    commodi explicabo placeat!
+                    {{product.description}}
                 </p>
 
             </div>

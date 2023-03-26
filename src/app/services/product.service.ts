@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 
 interface ApiResponse {
   products: any[];
@@ -31,5 +31,9 @@ export class ProductService {
       this.productList.next(response.products);
       console.log('api called!!!!!!!!!!!!!!!!!')
     })
+  }
+
+  getProduct(productID: number): Observable<any> {
+    return this.productListNew.pipe(map(products => products.filter(product => product.id === productID)))
   }
 }
